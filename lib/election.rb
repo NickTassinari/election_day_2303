@@ -1,10 +1,11 @@
 class Election 
-  attr_reader :year, :races, :candidates
+  attr_reader :year, :races, :candidates, :winners 
 
   def initialize(year)
     @year = year 
     @races = []
     @candidates = []
+    @winners = []
   end
 
   def add_race(race)
@@ -17,5 +18,10 @@ class Election
 
   def vote_counts
     {@candidates[0].name => @candidates[0].votes, @candidates[1].name => @candidates[1].votes}
+  end
+
+  def winner_winner
+    
+    @winners << @race.winner 
   end
 end
