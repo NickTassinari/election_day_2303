@@ -4,24 +4,32 @@ class Election
   def initialize(year)
     @year = year 
     @races = []
-    @candidates = []
     @winners = []
+    @vote_counts = {}
   end
 
   def add_race(race)
     @races << race 
   end
 
-  def add_candidates(candidate)
-    @candidates << candidate 
+  def candidates 
+    @races.flat_map do |race|
+      race.candidates
+    end
   end
 
   def vote_counts
-    {@candidates[0].name => @candidates[0].votes, @candidates[1].name => @candidates[1].votes}
+    add_votes
+    @vote_counts
   end
 
-  def winner_winner
-    
-    @winners << @race.winner 
+  def add_votes 
+    candidates.each do |candidate|
+      @vote_counts[candidate.name] = candidate.votes 
+    end
   end
+  # def winner_winner
+    
+  #   @winners << @race.winner 
+  # end
 end

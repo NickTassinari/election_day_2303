@@ -48,8 +48,8 @@ RSpec.describe Race do
     candidate1 = race.register_candidate!({name: "Diana D", party: :democrat})
     candidate2 = race.register_candidate!({name: "Roberto R", party: :republican})
 
-    election.add_candidates(candidate1)
-    election.add_candidates(candidate2)
+    # election.add_candidates(candidate1)
+    # election.add_candidates(candidate2)
     candidate1.vote_for!
     candidate1.vote_for!
     candidate2.vote_for!
